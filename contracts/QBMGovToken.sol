@@ -11,7 +11,8 @@ contract QBMGovToken is ERC20Votes, Ownable {
 		_mint(msg.sender, maxSupply);
 	}
 
-    /// @notice This is to be sure that the function from ERC20Votes is called.
+    // The following functions are overrides to ensure we call the ERC20Votes functions.
+
 	function _afterTokenTransfer(
 		address from,
 		address to,
@@ -20,12 +21,10 @@ contract QBMGovToken is ERC20Votes, Ownable {
 		super._afterTokenTransfer(from, to, amount);
 	}
 
-    /// @notice This is to be sure that the function from ERC20Votes is called.
 	function _mint(address to, uint256 amount) internal override(ERC20Votes) {
 		super._mint(to, amount);
 	}
 
-    /// @notice This is to be sure that the function from ERC20Votes is called.
 	function _burn(address account, uint256 amount) internal override(ERC20Votes) {
 		super._burn(account, amount);
 	}
